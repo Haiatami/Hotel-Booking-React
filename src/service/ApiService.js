@@ -106,19 +106,25 @@ export default class ApiService {
 
   // to get room types
   static async getRoomTypes() {
-    const resp = await axios.get(`${this.BASE_URL}/rooms/types`);
+    const resp = await axios.get(`${this.BASE_URL}/rooms/types`, {
+      headers: this.getHeader(),
+    });
     return resp.data;
   }
 
   // to get all rooms
   static async getAllRooms() {
-    const resp = await axios.get(`${this.BASE_URL}/rooms/all`);
+    const resp = await axios.get(`${this.BASE_URL}/rooms/all`, {
+      headers: this.getHeader(),
+    });
     return resp.data;
   }
 
   // to get room details
   static async getRoomById(roomId) {
-    const resp = await axios.get(`${this.BASE_URL}/rooms/${roomId}`);
+    const resp = await axios.get(`${this.BASE_URL}/rooms/${roomId}`, {
+      headers: this.getHeader(),
+    });
     return resp.data;
   }
 
@@ -144,14 +150,19 @@ export default class ApiService {
     console.log("checkOutDate from api: " + checkOutDate);
 
     const resp = await axios.get(
-      `${this.BASE_URL}/rooms/available?checkInDate=${checkInDate}&checkOutDate=${checkOutDate}&roomType=${roomType}`
+      `${this.BASE_URL}/rooms/available?checkInDate=${checkInDate}&checkOutDate=${checkOutDate}&roomType=${roomType}`,
+      {
+        headers: this.getHeader(),
+      }
     );
     return resp.data;
   }
 
   // BOOKINGS
   static async getBookingByReference(bookingCode) {
-    const resp = await axios.get(`${this.BASE_URL}/bookings/${bookingCode}`);
+    const resp = await axios.get(`${this.BASE_URL}/bookings/${bookingCode}`, {
+      headers: this.getHeader(),
+    });
     return resp.data;
   }
 

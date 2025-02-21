@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ApiService from "../../service/ApiService";
-import { type } from "@testing-library/user-event/dist/type";
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({

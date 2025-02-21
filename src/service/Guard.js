@@ -1,17 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import ApiService from "./ApiService";
 
-export const CustomerRouter = ({ element: Component }) => {
+export const CustomerRoute = ({ element: Component }) => {
   const location = useLocation();
-  return ApiService.isAuthenticated() ? (
+  return ApiService.isAthenticated() ? (
     Component
   ) : (
     <Navigate to="/login" replace state={{ from: location }} />
   );
 };
 
-export const AdminRouter = ({ element: Component }) => {
+export const AdminRoute = ({ element: Component }) => {
   const location = useLocation();
   return ApiService.isAdmin() ? (
     Component

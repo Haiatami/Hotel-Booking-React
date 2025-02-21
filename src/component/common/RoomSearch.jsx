@@ -115,7 +115,7 @@ const RoomSearch = ({ handSearchResult }) => {
           )}
         </div>
 
-        {/* check in date and calander field */}
+        {/* check out date and calander field */}
         <div className="search-field" style={{ position: "relative" }}>
           <label>Check-out Date</label>
           <input
