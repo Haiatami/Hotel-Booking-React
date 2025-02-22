@@ -10,6 +10,9 @@ import { CustomerRoute } from "./service/Guard";
 import FindBookingPage from "./component/booking_rooms/FindBookingPage";
 import ProfilePage from "./component/profile/ProfilePage";
 import EditProfilePage from "./component/profile/EditProfile";
+import PaymentPage from "./component/payment/PaymentPage";
+import PaymentSuccess from "./component/payment/PaymentSuccess";
+import PaymentFailure from "./component/payment/PaymentFailue";
 
 function App() {
   return (
@@ -41,6 +44,20 @@ function App() {
 
             {/* BOOKING PAGES */}
             <Route path="/find-booking" element={<FindBookingPage />} />
+
+            {/* PAYMENT PAGES */}
+            <Route
+              path="/payment/:bookingReference/:amount"
+              element={<CustomerRoute element={<PaymentPage />} />}
+            />
+            <Route
+              path="/payment-success/:bookingReference"
+              element={<CustomerRoute element={<PaymentSuccess />} />}
+            />
+            <Route
+              path="/payment-failed/:bookingReference"
+              element={<CustomerRoute element={<PaymentFailure />} />}
+            />
           </Routes>
         </div>
         <Footer />
