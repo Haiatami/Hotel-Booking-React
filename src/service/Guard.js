@@ -4,7 +4,7 @@ import ApiService from "./ApiService";
 
 export const CustomerRoute = ({ element: Component }) => {
   const location = useLocation();
-  return ApiService.isAthenticated() ? (
+  return ApiService.isAuthenticated() ? (
     Component
   ) : (
     <Navigate to="/login" replace state={{ from: location }} />

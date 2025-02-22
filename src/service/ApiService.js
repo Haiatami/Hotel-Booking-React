@@ -5,12 +5,12 @@ export default class ApiService {
   static BASE_URL = "http://localhost:9090/api";
   static ENCRYPTION_KEY = "hoanghai-secrete-key";
 
-  // enctyp token using cruyptojs
+  // encrypt token using crypto-js
   static encrypt(token) {
     return CryptoJS.AES.encrypt(token, this.ENCRYPTION_KEY.toString());
   }
 
-  // deceype token using cruyptojs
+  // decrypt token using crypto-js
   static decrypt(token) {
     const bytes = CryptoJS.AES.decrypt(token, this.ENCRYPTION_KEY);
     return bytes.toString(CryptoJS.enc.Utf8);
@@ -18,28 +18,28 @@ export default class ApiService {
 
   // save token
   static saveToken(token) {
-    const encrytpedToken = this.encrypt(token);
-    localStorage.setItem("token", encrytpedToken);
+    const encryptedToken = this.encrypt(token);
+    localStorage.setItem("token", encryptedToken);
   }
 
-  // retreive token
+  // retrieve token
   static getToken() {
-    const encrytpedToken = localStorage.getItem("token");
-    if (!encrytpedToken) return null;
-    return this.decrypt(encrytpedToken);
+    const encryptedToken = localStorage.getItem("token");
+    if (!encryptedToken) return null;
+    return this.decrypt(encryptedToken);
   }
 
   // save role
   static saveRole(role) {
-    const encrytpedRole = this.encrypt(role);
-    localStorage.setItem("role", encrytpedRole);
+    const encryptedRole = this.encrypt(role);
+    localStorage.setItem("role", encryptedRole);
   }
 
   // get role
   static getRole() {
-    const encrytpedRole = localStorage.getItem("role");
-    if (!encrytpedRole) return null;
-    return this.decrypt(encrytpedRole);
+    const encryptedRole = localStorage.getItem("role");
+    if (!encryptedRole) return null;
+    return this.decrypt(encryptedRole);
   }
 
   static clearAuth() {
@@ -188,7 +188,7 @@ export default class ApiService {
   }
 
   // PAYMMENT
-  // funtion to create payment intent
+  // function to create payment intent
   static async proceedForPayment(body) {
     const resp = await axios.post(`${this.BASE_URL}/payments/pay`, body, {
       headers: this.getHeader(),
@@ -197,7 +197,7 @@ export default class ApiService {
   }
 
   // TO UPDATE PAYMENT WHEN IT HAS BEEN COMPLETED
-  static async updateBookingPaymeent(body) {
+  static async updateBookingPayment(body) {
     const resp = await axios.put(`${this.BASE_URL}/payments/update`, body, {
       headers: this.getHeader(),
     });
@@ -209,7 +209,7 @@ export default class ApiService {
     this.clearAuth();
   }
 
-  static isAthenticated() {
+  static isAuthenticated() {
     const token = this.getToken();
     return !!token;
   }

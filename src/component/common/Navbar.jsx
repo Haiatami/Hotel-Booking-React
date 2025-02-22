@@ -3,7 +3,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 import ApiService from "../../service/ApiService";
 
 function Navbar() {
-  const isAuthenticated = ApiService.isAthenticated();
+  const isAuthenticated = ApiService.isAuthenticated();
   const isCustomer = ApiService.isCustomer();
   const isAdmin = ApiService.isAdmin();
 

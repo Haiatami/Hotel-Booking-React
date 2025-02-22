@@ -4,12 +4,12 @@ import { DayPicker } from "react-day-picker";
 
 const RoomSearch = ({ handSearchResult }) => {
   const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndtDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const [roomType, setRoomType] = useState("");
   const [roomTypes, setRoomTypes] = useState([]);
   const [error, setError] = useState("");
 
-  //state for controlling calander visibility
+  //state for controlling calendar visibility
   const [isStartDatePickerVisible, setStartDatePickerVisible] = useState(false);
   const [isEndDatePickerVisible, setEndDatePickerVisible] = useState(false);
 
@@ -52,7 +52,7 @@ const RoomSearch = ({ handSearchResult }) => {
     }, timeout);
   };
 
-  //this will fetch the rooms avialbale from our api
+  //this will fetch the rooms available from our api
   const handleInternalSearch = async () => {
     if (!startDate || !endDate || !roomType) {
       showError("Please select fields");
@@ -76,7 +76,7 @@ const RoomSearch = ({ handSearchResult }) => {
 
       if (resp.status === 200) {
         if (resp.rooms.length === 0) {
-          showError("Room type not cuttently available for the selected date");
+          showError("Room type not currently available for the selected date");
           return;
         }
         handSearchResult(resp.rooms);
@@ -90,7 +90,7 @@ const RoomSearch = ({ handSearchResult }) => {
   return (
     <section>
       <div className="search-container">
-        {/* check in date and calander field */}
+        {/* check in date and calendar field */}
         <div className="search-field" style={{ position: "relative" }}>
           <label>Check-in Date</label>
           <input
@@ -115,7 +115,7 @@ const RoomSearch = ({ handSearchResult }) => {
           )}
         </div>
 
-        {/* check out date and calander field */}
+        {/* check out date and calender field */}
         <div className="search-field" style={{ position: "relative" }}>
           <label>Check-out Date</label>
           <input
@@ -131,7 +131,7 @@ const RoomSearch = ({ handSearchResult }) => {
               <DayPicker
                 selected={endDate}
                 onDayClick={(date) => {
-                  setEndtDate(date);
+                  setEndDate(date);
                   setEndDatePickerVisible(false);
                 }}
                 month={endDate}
@@ -160,7 +160,7 @@ const RoomSearch = ({ handSearchResult }) => {
 
         {/* SEARCH BUTTON */}
         <button className="home-search-button" onClick={handleInternalSearch}>
-          Search Roooms
+          Search Rooms
         </button>
       </div>
 

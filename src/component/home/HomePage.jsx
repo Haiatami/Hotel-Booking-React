@@ -5,7 +5,7 @@ import RoomSearch from "../common/RoomSearch";
 const HomePage = () => {
   const [roomSearchResult, setRoomSearchResult] = useState([]);
 
-  //funtion to handle search result
+  //function to handle search result
   const handleSearchResult = (results) => {
     setRoomSearchResult(results);
     console.log("ReSILT IS: " + results);

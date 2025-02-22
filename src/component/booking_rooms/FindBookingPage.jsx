@@ -50,7 +50,7 @@ const FindBookingPage = () => {
           <br />
           <hr />
           <br />
-          <h3>Booker Detials</h3>
+          <h3>Booker Details</h3>
           <div>
             <p> First Name: {bookingDetails.user.firstName}</p>
             <p> Last Name: {bookingDetails.user.lastName}</p>

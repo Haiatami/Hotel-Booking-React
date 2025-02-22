@@ -31,7 +31,7 @@ const AllRoomsPage = () => {
     };
 
     //get room types
-    const ftechRoomsType = async () => {
+    const fetchRoomsType = async () => {
       try {
         const types = await ApiService.getRoomTypes();
         setRoomTypes(types);
@@ -40,7 +40,7 @@ const AllRoomsPage = () => {
       }
     };
     fetchRooms();
-    ftechRoomsType();
+    fetchRoomsType();
   }, []);
 
   //handle changes to room type filter

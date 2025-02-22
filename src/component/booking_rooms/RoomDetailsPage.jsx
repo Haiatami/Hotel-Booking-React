@@ -65,11 +65,11 @@ const RoomDetailsPage = () => {
     console.log("Inside acceptBooking()");
     try {
       const formattedCheckInDate = checkInDate.toLocaleDateString("en-CA");
-      const formatterdCheckOutDate = checkOutDate.toLocaleDateString("en-CA");
+      const formattedCheckOutDate = checkOutDate.toLocaleDateString("en-CA");
 
       const booking = {
         checkInDate: formattedCheckInDate,
-        checkOutDate: formatterdCheckOutDate,
+        checkOutDate: formattedCheckOutDate,
         roomId: room.id,
       };
 
@@ -77,7 +77,7 @@ const RoomDetailsPage = () => {
 
       if (resp.status === 200) {
         setShowMessage(
-          "Your Booking is Successful. Your booking details have been sent to your email . Please proceeed for payment"
+          "Your Booking is Successful. Your booking details have been sent to your email . Please proceed for payment"
         );
         setTimeout(() => {
           setShowMessage(null);

@@ -14,14 +14,14 @@ const RegisterPage = () => {
   const [message, setMessage] = useState({ type: "", text: "" });
   const navigate = useNavigate();
 
-  //handle inouyt change
+  //handle input change
   const handleInputChange = ({ target: { name, value } }) =>
     setFormData((prev) => ({ ...prev, [name]: value }));
 
   //validate from field
   const isFormValid = Object.values(formData).every((field) => field.trim());
 
-  //handle form submissiion
+  //handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isFormValid) {
